@@ -5,25 +5,79 @@
 **Makerspace projects**
 
 
-# Ring of lights
+# Ring of lights *(October 2023 -> TBA)*
 
 
 
 
-# Lasercutter board games & boxes
-
-This project was my first attempt to work with the lasercutters available at the Makerspace, 
-
-
-
-
-# Face chocolate
-
-In this project, I attempted to create a chocolate in the shape of a friends face as a gift for his birthday. The 
+I have a ring of lights on the ceiling in my room! These were used by the previous owner of the now turned student house as backlight for psychological sessions held in what is my apartment today. However, the lights were disabled by the previous owner - so with the permission from the current landlord, I decided to try to fix them.
 
 <div class="twentytwenty-container">
-    <img src="images/ref_sphere_pointlights_ems.png" alt="Reference_ems" class="img-responsive">
+    <img src="images/ring_of_lights.jpg" alt="Ring of lights" class="img-responsive">
 </div>
+
+
+By connecting each light to the power grid individually, I figured the problem is in the controlling network, not the lights themselves, so I decided to fix and improve that. My goal was to be able to dim each light in real time by sending commands either from my pc or any other device.
+
+After getting some help from Lukas Pfitscher from the ETH Makerspace about which circuits I would want to use to achieve my goals, I came up with the following design - one arduino will control 5 lights using PWM, it will be able to receive commands via bluetooth. I will use a step down converter to obtain power for the arduino, and RobotDyn AC dimmers will be used to modulate the AC current using the PWM sent by the arduino. Then I will have one control network in the wall, that will be able to signal all the arduinos on the ceiling.
+
+I started by creating a demo circuit that is able to control one light by receiving bluetooth commands from my phone:
+
+<div class="twentytwenty-container">
+    <img src="images/lights_demo_whole.jpg" alt="Light dimming" class="img-responsive">
+    <img src="images/lights_demo_close.jpg" alt="Light dimming board" class="img-responsive">
+</div>
+
+This project will continue when I find the time, I need to design and likely 3D print a small container for the control network that can fit inside each lamp, then connect everything together, and finally design the controlling network.
+
+
+
+
+# Lasercutter board games & boxes *(October 2023)*
+
+To get better acquainted with the laser cutters available at the Makerspace, I designed a first project - I would create an improved version of the popular board game *Bananagrams* (a quicker version of scrabble) in the Czech language.
+
+I improved the original design of the pieces with small knobs and holes to make long words stay together better, as moving whole words is quite common in the game, and printed all the pieces on 5mm thick plywood. For storage, I used a design I found on the *boxes.py* website, removed some parts to make it git my use case, and created a custom lid design. The finished game looked like this:
+
+<div class="twentytwenty-container">
+    <img src="images/bananagrams_letters.jpg" alt="Letters" class="img-responsive">
+    <img src="images/bananagrams_box.jpg" alt="Box" class="img-responsive">
+</div>
+
+
+
+
+
+# Face chocolate *(October 2023)*
+
+I decided to create a chocolate in the shape of a friends face as a gift for his birthday. I started by taking his photo but converting it directly didn't look so promising, so I looked into edge detection algorithms and ways to convert images to pencil drawings. In the end, I settled on using photoshop to convert the photo to smoothed edges, and used a python script to interpret is as a heightmap. This gave me the basic shape of the 3D model.
+
+The first idea I had was to take an inverse of the face, add a joke nickname from a summer camp where we used to go together and to 3D print the whole thing. The result looked quite neat (though with a few 3D print hairs), but sadly, the chocolate was rather subpar. It had a tendency to stick to the form, and to take tiny pieces of plastic with it, making it inedible. Also, the text was mirrored:
+
+<div class="twentytwenty-container">
+    <img src="images/face_3d_print_mold.jpg" alt="Mold" class="img-responsive">
+    <img src="images/face_3d_print_chocolate.jpg" alt="Chocolate" class="img-responsive">
+</div>
+
+Because of this, I looked into alternative ways to construct the mold, and quickly enough, I found a machine that would be able to do just that - the vacuum former at the makerspace can place a plastic sheet over my 3D print, and suck out all the air, forming a food-grade mould. So this is what I went with - after few struggling attempts with the 3D printers (the nozzle kept getting stuck because I was printing at the lowest resolution), I managed to get a succesful print, and created a mold using the vacuum former. The resulting treat looked and tasted great, particularly when cast out of the finest belgian chocolate :D
+
+<div class="twentytwenty-container">
+    <img src="images/face_vacuum_mold.jpg" alt="Mold" class="img-responsive">
+    <img src="images/face_vacuum_chocolate.jpg" alt="Chocolate" class="img-responsive">
+</div>
+
+
+
+# Bin 3D labels *(September 2023)*
+
+As a first project to get me acquinted with 3D printing, I decided to create 3D labels for the bins in my apartment. For each label, I created a black PLA frame with extruding text and a complementary PETG part that perfectly fit into the frame and served as a background for the text. The end result looks like this:
+
+<div class="twentytwenty-container">
+    <img src="images/bin_label_whole.jpg" alt="Bin labels" class="img-responsive">
+    <img src="images/bin_label_close.jpg" alt="Closeup" class="img-responsive">
+</div>
+
+
 
 
 
